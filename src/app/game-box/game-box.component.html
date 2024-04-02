@@ -1,0 +1,39 @@
+<div class="game-box">
+  <div class="info-card info-card--start">
+    <div class="info-card__container">
+      <div class="info-card__logo"></div>
+      <div class="info-card__text">Welcome to</div>
+      <div class="info-card__title">Deliverability wonderland</div>
+      <div class="info-card__play play" (click)="startGame()">Start game</div>
+      <div class="info-card__instruction">
+        Earn your way towards<br />top deliverability
+      </div>
+      <div>
+        Use arrows to move
+        <div class="info-card__btns">
+          <span class="arrow arrow--left"></span>
+          <span class="arrow"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <info-box
+    [state]="state"
+    [score]="score"
+    (playBtn)="startGame()"
+    class="info-card info-card--game-over"
+  ></info-box>
+  <div class="game-box__game">
+    <div class="game-box__box">Points: <b>{{ score }}</b></div>
+    <div class="logo"></div>
+    <div class="game-box__game-over">Game over</div>
+    <div class="game-box__box health">
+      Lives:
+      <span class="game-box__heart"></span>
+      <span class="game-box__heart"></span>
+      <span class="game-box__heart"></span>
+      <span class="game-box__heart"></span>
+    </div>
+  </div>
+  <div class="game-box__cart"></div>
+</div>

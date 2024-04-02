@@ -1,0 +1,330 @@
+.game-box {
+  width: 800px;
+  height: 600px;
+  position: relative;
+  display: block;
+  margin: auto;
+  overflow: hidden;
+  background-image: url('../images/background.png');
+  transition: all 0.5s ease;
+  border: 1px solid $black;
+  transition: all 0.3s ease;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  color: $black;
+
+  &.game-box--start {
+    .game-box__cart,
+    .game-box__game,
+    .game-box--game-over {
+      display: none;
+    }
+
+    &.active .info-card--start {
+      opacity: 1;
+    }
+
+    .info-card--start {
+      display: block;
+    }
+  }
+
+  &.game-box--game-over {
+    .game-box__cart,
+    .game-box__game,
+    .info-card--start {
+      display: none;
+    }
+
+    &.active .info-card--game-over {
+      opacity: 1;
+    }
+
+    .info-card--game-over {
+      display: block;
+    }
+  }
+
+  &.game-box--game-over-white {
+    &.active {
+      .game-box__game-over {
+        opacity: 1;
+      }
+
+      &::before {
+        opacity: 0.8;
+      }
+    }
+
+    &::before {
+      content: '';
+      opacity: 0;
+      background-color: $white;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      position: absolute;
+      z-index: 2;
+      transition: opacity 0.3s ease;
+    }
+
+    .game-box__cart,
+    .info-card--start,
+    .info-card--game-over {
+      display: none;
+    }
+
+    .game-box__game-over {
+      display: block;
+      z-index: 3;
+      position: absolute;
+      margin: auto;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      font-size: 51px;
+      text-transform: uppercase;
+      width: 304px;
+      height: 77px;
+      font-weight: 700;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+  }
+
+  &__game-over {
+    display: none;
+  }
+
+  .notification {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 12px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 12px;
+    text-transform: uppercase;
+    display: inline-flex;
+    justify-content: center;
+
+    b {
+      font-weight: 700;
+      margin-right: 7px;
+    }
+
+    &::before {
+      content: '';
+      display: inline-block;
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin-right: 13px;
+    }
+
+    &.lost-live {
+      font-size: 14px;
+      margin-top: -6px;
+      justify-content: flex-start;
+      margin-left: 85px;
+      color: $red;
+    }
+
+    &.warmup {
+      line-height: 38px;
+
+      &::before {
+        width: 33px;
+        height: 38px;
+        background-image: url('../images/warmup.svg');
+      }
+    }
+
+    &.bounce {
+      line-height: 38px;
+
+      &::before {
+        width: 33px;
+        height: 38px;
+        background-image: url('../images/bounce.svg');
+      }
+    }
+
+    &.deliverability {
+      line-height: 38px;
+
+      &::before {
+        width: 33px;
+        height: 38px;
+        background-image: url('../images/deliverability.svg');
+      }
+    }
+  }
+
+  &__cart {
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url('../images/cart.svg');
+    bottom: 0;
+    left: 0;
+    width: 136px;
+    height: 101px;
+    transition: left 0.3s ease;
+
+    &::after {
+      content: '';
+      background-image: url('../images/cart-outsite.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      bottom: 0;
+      left: 0;
+      width: 130px;
+      height: 86px;
+      position: absolute;
+      z-index: 3;
+    }
+  }
+
+  &__object {
+    top: 60px;
+    left: 0;
+    position: absolute;
+    transition: left 0.3s ease;
+    z-index: 2;
+    animation: lift 2s linear infinite;
+
+    &.mail {
+      background-image: url('../images/mail.svg');
+      width: 45px;
+      height: 38px;
+    }
+
+    &.deliverability {
+      background-image: url('../images/deliverability.svg');
+      width: 46px;
+      height: 46px;
+    }
+
+    &.bounce {
+      background-image: url('../images/bounce.svg');
+      width: 40px;
+      height: 46px;
+    }
+
+    &.warmup {
+      background-image: url('../images/warmup.svg');
+      width: 46px;
+      height: 53px;
+    }
+
+    &.spam {
+      background-image: url('../images/spam.svg');
+      width: 96px;
+      height: 11px;
+    }
+
+    &.spf {
+      background-image: url('../images/spf.svg');
+      width: 49px;
+      height: 11px;
+    }
+
+    &.dkim {
+      background-image: url('../images/dkim.svg');
+      width: 60px;
+      height: 11px;
+    }
+
+    &.links {
+      background-image: url('../images/links.svg');
+      width: 40px;
+      height: 13px;
+    }
+  }
+
+  &__heart {
+    width: 17px;
+    height: 14px;
+    background-size: contain;
+    background-image: url('../images/heart.svg');
+
+    &.lost {
+      background-image: url('../images/heart-lost.svg');
+    }
+  }
+
+  &__info {
+    font-size: 32px;
+    text-align: center;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    position: absolute;
+    display: inline-block;
+    line-height: 30px;
+    height: 30px;
+  }
+
+  &__game {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    .logo {
+      background-image: url('../images/logo.svg');
+      background-repeat: no-repeat;
+      display: inline-block;
+      width: 99px;
+      height: 36px;
+      position: absolute;
+      margin-top: 14px;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &__box {
+    margin: 22px;
+    display: flex;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+
+    b {
+      font-weight: 700;
+      margin-left: 7px;
+    }
+  }
+
+  .health {
+    width: 130px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+@keyframes lift {
+  0% {
+    transform: rotate(20deg);
+  }
+  30% {
+    transform: rotate(-10deg);
+  }
+
+  70% {
+    transform: rotate(25deg);
+  }
+  100% {
+    transform: rotate(45deg);
+  }
+}

@@ -1,0 +1,18 @@
+<div class="info-card__container">
+  <div class="info-card__logo"></div>
+  <div class="info-card__copied">Link copied to clipboard</div>
+  <div class="info-card__text" [innerHTML]="getText"></div>
+  <div class="info-card__text">{{ score }} PTS</div>
+  <div class="info-card__play play" (click)="playEvent()">{{ getTextBtn }}</div>
+  <div class="social-box">
+    <span class="link" (click)="copyToClipboard()"
+      >Share this game with a colleague</span
+    >
+    <div class="social-box__text">or</div>
+    <div class="social-box__text">Learn more about</div>
+  </div>
+  <a href="https://www.youtube.com/watch?v=BPVP7gMsca8" target="_blank"
+    >Deliverability Monitor & Bounce Shield</a
+  >
+  <input type="text" value="https://woodpecker.co/game" class="clipboard" />
+</div>

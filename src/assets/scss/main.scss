@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+.game-box {
+  b {
+    font-weight: 600;
+  }
+
+  a,
+  a:active,
+  a:visited,
+  .link {
+    color: $blue;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  a:hover,
+  .link:hover {
+    color: $blue-hover;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .clipboard {
+    position: absolute;
+    top: -2000px;
+  }
+
+  .btn {
+    padding: 8px 32px;
+    font-size: 18px;
+    color: $white;
+    background-color: $green;
+    border-radius: 5px;
+    text-transform: uppercase;
+    line-height: 24px;
+    cursor: pointer;
+    display: inline-block;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: $green-hover;
+    }
+  }
+
+  .arrow {
+    background-image: url('../images/arrow.svg');
+    width: 38px;
+    height: 38px;
+
+    &--left {
+      transform: rotate(180deg);
+    }
+  }
+}
